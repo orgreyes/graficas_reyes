@@ -43,6 +43,10 @@ const login = async e => {
         Toast.fire({
             title : mensaje,
             icon
+        }).then((e)=>{
+            if(codigo === 1){
+                location.href = '/graficas_reyes/menu'
+            }
         })
 
     } catch (error) {

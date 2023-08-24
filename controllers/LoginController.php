@@ -7,7 +7,19 @@ use Model\Usuario;
 
 class LoginController {
     public static function index(Router $router){
-        $router->render('login/index', []);
+        if(!isset($_SESSION['auth_user'])){
+            $router->render('login/index', []);
+        }else{
+            header('Location: /graficas_reyes/menu');
+        }
+    }
+
+    public static function menu(Router $router){
+        if(isset($_SESSION['auth_user'])){
+            $router->render('menu/index', []);
+        }else{
+            header('Location: /graficas_reyes/');
+        }
     }
 
     public static function loginAPI(){
@@ -47,5 +59,12 @@ class LoginController {
                 'mensaje' => 'Usuario no encontrado'
             ]);
         }
+    }
+
+    public static function logout(){
+        $_SESSION = [];
+        session_unset();
+        session_destroy();
+        header('Location: /graficas_reyes/');
     }
 }
