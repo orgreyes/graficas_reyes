@@ -7,6 +7,7 @@ use Controllers\AppController;
 use Controllers\LoginController;
 use Controllers\ProductoController;
 use Controllers\ClienteController;
+use Controllers\VentaController;
 
 $router = new Router();
 $router->setBaseURL('/' . $_ENV['APP_NAME']);
@@ -30,6 +31,12 @@ $router->post('/API/clientes/guardar', [ClienteController::class,'guardarAPI']);
 $router->post('/API/clientes/eliminar', [ClienteController::class,'eliminarAPI']);
 $router->post('/API/clientes/modificar', [ClienteController::class,'modificarAPI']);
 
+//!Rutas de Ventas
+$router->get('/ventas/datatable', [VentaController::class,'datatable']);
+$router->get('/API/ventas/buscar', [VentaController::class,'buscarAPI']);
+$router->post('/API/ventas/guardar', [VentaController::class,'guardarAPI']);
+$router->post('/API/ventas/eliminar', [VentaController::class,'eliminarAPI']);
+$router->post('/API/ventas/modificar', [VentaController::class,'modificarAPI']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
