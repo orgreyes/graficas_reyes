@@ -240,8 +240,8 @@ const modificar = async () => {
 const eliminar = async e => {
     const result = await Swal.fire({
         icon: 'question',
-        title: 'Eliminar paciente',
-        text: '¿Desea eliminar este paciente?',
+        title: 'Eliminar cliente',
+        text: '¿Desea eliminar este cliente?',
         showCancelButton: true,
         confirmButtonText: 'Eliminar',
         cancelButtonText: 'Cancelar'

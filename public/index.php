@@ -16,11 +16,14 @@ $router->get('/menu', [LoginController::class,'menu']);
 $router->get('/logout', [LoginController::class,'logout']);
 $router->post('/API/login', [LoginController::class,'loginAPI']);
 
-//!Productos
+//!Rutas de Productos
 $router->get('/productos/datatable', [ProductoController::class,'datatable']);
 $router->get('/API/productos/buscar', [ProductoController::class,'buscarAPI']);
+$router->post('/API/productos/guardar', [ProductoController::class,'guardarAPI']);
+$router->post('/API/productos/eliminar', [ProductoController::class,'eliminarAPI']);
+$router->post('/API/productos/modificar', [ProductoController::class,'modificarAPI']);
 
-//!Clientes
+//!Rutas de Clientes
 $router->get('/clientes/datatable', [ClienteController::class,'datatable']);
 $router->get('/API/clientes/buscar', [ClienteController::class,'buscarAPI']);
 $router->post('/API/clientes/guardar', [ClienteController::class,'guardarAPI']);
