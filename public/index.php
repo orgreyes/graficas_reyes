@@ -9,6 +9,7 @@ use Controllers\ProductoController;
 use Controllers\ClienteController;
 use Controllers\VentaController;
 use Controllers\DetalleController;
+use Controllers\DetalleClienteController;
 
 
 $router = new Router();
@@ -45,8 +46,8 @@ $router->get('/productos/estadistica', [DetalleController::class,'estadistica'])
 $router->get('/API/productos/estadistica', [DetalleController::class,'detalleVentasAPI']);
 
 //!Rutas de Estadisticas Clientes
-$router->get('/clientes/estadistica', [DetalleController::class,'estadistica']);
-$router->get('/API/clientes/estadistica', [DetalleController::class,'detalleComprasAPI']);
+$router->get('/clientes/estadisticas', [DetalleClienteController::class,'estadistica']);
+$router->get('/API/clientes/estadistica', [DetalleClienteController::class,'detalleComprasAPI']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

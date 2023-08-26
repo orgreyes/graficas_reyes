@@ -20,11 +20,14 @@ const chartClientes  = new Chart(context, {
         labels : [],
         datasets : [
             {
-                label : 'Clientes',
+                label : 'compras',
                 data : [],
                 backgroundColor : []
             }
         ]
+    },
+    options : {
+        indexAxis: 'x'
     }
 })
 
@@ -44,8 +47,8 @@ const getEstadisticas = async () => {
 
         if(data){
             data.forEach(registro => {
-                chartClientes.data.labels.push(registro.producto)
-                chartClientes.data.datasets[0].data.push(registro.cantidad)
+                chartClientes.data.labels.push(registro.cliente)
+                chartClientes.data.datasets[0].data.push(registro.cantidad_ventas)
                 chartClientes.data.datasets[0].backgroundColor.push(getRandomColor())
             });
         }else{

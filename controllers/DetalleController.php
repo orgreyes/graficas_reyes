@@ -13,10 +13,6 @@ class DetalleController {
         $router->render('productos/estadisticas', [
             'detalles' => $detalles,
         ]);
-    
-        $router->render('clientes/estadistica', [
-            'detalles' => $detalles,
-        ]);
     }
     
 
@@ -36,32 +32,6 @@ class DetalleController {
                 $productos = Detalle::fetchArray($sql);
     
                 echo json_encode($productos);
-            } catch (Exception $e) {
-                echo json_encode([
-                    'detalle' => $e->getMessage(),
-                    'mensaje' => 'Ocurrió un error',
-                    'codigo' => 0
-                ]);
-            }
-        }
-
-        //!Funcion DetalleCliente
-        public static function detalleComprasAPI()
-        {
-    
-            $sql = " SELECT c.cliente_nombre AS cliente, COUNT(v.venta_id) AS cantidad_ventas
-            FROM clientes c
-            LEFT JOIN ventas v ON c.cliente_id = v.venta_cliente AND v.venta_situacion = '1'
-            GROUP BY c.cliente_id, c.cliente_nombre
-            ORDER BY c.cliente_id;            
-             ";
-            
-
-            try {
-    
-                $clientes = Detalle::fetchArray($sql);
-    
-                echo json_encode($clientes);
             } catch (Exception $e) {
                 echo json_encode([
                     'detalle' => $e->getMessage(),
