@@ -39,6 +39,10 @@ CREATE TABLE ventas (
 INSERT INTO ventas (venta_cliente, venta_fecha) values ('1', '2023-01-25');
 INSERT INTO ventas (venta_cliente, venta_fecha) values ('2', '2023-01-25');
 INSERT INTO ventas (venta_cliente, venta_fecha) values ('3', '2023-02-15');
+INSERT INTO ventas (venta_cliente, venta_fecha) values ('1', '2023-03-26');
+INSERT INTO ventas (venta_cliente, venta_fecha) values ('2', '2023-04-20');
+INSERT INTO ventas (venta_cliente, venta_fecha) values ('2', '2023-05-15');
+
 
 CREATE TABLE detalle_ventas (
     detalle_id SERIAL NOT NULL,
